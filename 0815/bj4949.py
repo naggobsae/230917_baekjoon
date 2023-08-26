@@ -18,7 +18,7 @@ while True:
                     break
                 else:
                     res = stack.pop()
-                    if res != '(':
+                    if res != '(': # ([(]]) 같은 반례를 걸러주기 위함
                         flag = False
                         break
             elif string[i] == ']':
@@ -27,13 +27,11 @@ while True:
                     break
                 else:
                     res = stack.pop()
-                    if res != '[':
+                    if res != '[': # ([(]]) 같은 반례를 걸러주기 위함
                         flag = False
                         break
             else:
                 continue
-    print(stack)
-    print(flag)
     if not stack and flag:
         print("yes")
     else:
